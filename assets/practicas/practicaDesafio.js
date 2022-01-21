@@ -15,6 +15,7 @@ let btn_j0= document.getElementById("btn_j0");
 
 let arrayLetras = [];
 let arrayNumeros = [];
+let arrayPruebaGit=[];
 
 const arrayLetrasGuia = ['A','B','C','D','E','F','G','H','I','J'];
 const arrayNumerosGuia = [1,2,3,4,5,6,7,8,9,0];
@@ -43,7 +44,7 @@ const ejecucion = (letra,numero) => {
     }
 }
 
-/** 
+
 const ejecucionA1 = () =>{
     if(arrayLetras.length<=9){
         if("A"==arrayLetrasGuia[arrayLetras.length]){
@@ -227,7 +228,7 @@ const ejecucionJ0= () =>{
     }
 }
 
-*/
+
 btn_a1.onclick = () =>{
     ejecucion("A",1);
 }
