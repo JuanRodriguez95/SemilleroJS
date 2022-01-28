@@ -86,38 +86,50 @@ let datosSantander = [
   "PiedeCuesta-Poblacion: 186.167",
 ];
 
+
 /**
  * Funcion que muestra el menu de opciones de los departamentos.
  */
-function inicio() {
-    
-  let eleccionUno = prompt(mensajeUno);
+function inicio(eleccionUno) {
   let departamento;
-  switch (eleccionUno) {
-    case "1":
-      departamento = prompt(mensajeCundinamarca);
-      ciudades(departamento, datosCundinamarca);
-      break;
-    case "2":
-      departamento = prompt(mensajeAntioquia);
-      ciudades(departamento, datosAntioquia);
-      break;
-    case "3":
-      departamento = prompt(mensajeMeta);
-      ciudades(departamento, datosMeta);
-      break;
-    case "4":
-      departamento = prompt(mensajeBoyaca);
-      ciudades(departamento, datosBoyaca);
-      break;
-    case "5":
-      departamento = prompt(mensajeSantander);
-      ciudades(departamento, datosSantander);
-      break;
-    default:
-      alert("la opcion ingresada no es valida");
-      break;
-  }
+  let bandera = true;
+      switch (eleccionUno) {
+        case "1":
+          departamento = prompt(mensajeCundinamarca);
+          while(departamento>5 || departamento<0){
+            departamento = prompt(mensajeCundinamarca);
+          }
+          ciudades(departamento, datosCundinamarca);
+          break;
+        case "2":
+          departamento = prompt(mensajeAntioquia);
+          while(departamento>5 || departamento<0){
+            departamento = prompt(mensajeCundinamarca);
+          }
+          ciudades(departamento, datosAntioquia);
+          break;
+        case "3":
+          departamento = prompt(mensajeMeta);
+          while(departamento>5 || departamento<0){
+            departamento = prompt(mensajeMeta);
+          }
+          ciudades(departamento, datosMeta);
+          break;
+        case "4":
+          departamento = prompt(mensajeBoyaca);
+          while(departamento>5 || departamento<0){
+            departamento = prompt(mensajeBoyaca);
+          }
+          ciudades(departamento, datosBoyaca);
+          break;
+        case "5":
+          departamento = prompt(mensajeSantander);
+          while(departamento>5 || departamento<0){
+            departamento = prompt(mensajeSantander);
+          }
+          ciudades(departamento, datosSantander);
+          break;
+      }
 }
 
 /**
@@ -127,24 +139,43 @@ function inicio() {
  * @param {*} datos array con los datos de as ciudades del departamento seleccionado
  */
 function ciudades(eleccion, datos) {
-  switch (eleccion) {
-    case "1":
-      alert(datos[0]);
-      break;
-    case "2":
-     alert(datos[1]);
-      break;
-    case "3":
-     alert(datos[2]);
-      break;
-    case "4":
-     alert(datos[3]);
-      break;
-    case "5":
-      alert(datos[4]);
-      break;
-    default:
-      alert("la opcion ingresada no es valida");
-      break;
+    switch (eleccion) {
+      case "1":
+        alert(datos[0]);
+        eleccion=6;
+          break;
+      case "2":
+        alert(datos[1]);
+        eleccion=6;
+          break;
+      case "3":
+        alert(datos[2]);
+        eleccion=6;
+        break;
+      case "4":
+        alert(datos[3]);
+        eleccion=6;
+        break;
+      case "5":
+        alert(datos[4]);
+        eleccion=6;
+        break;
+    }
+    ejecucion();
   }
+
+function ejecucion(){
+  let eleccionUno = prompt(mensajeUno);
+  console.log(eleccionUno>5 && eleccionUno<0);
+  while(eleccionUno>5){
+    eleccionUno = prompt(mensajeUno);
+  }
+  inicio(eleccionUno);
+}
+
+let ejecutar = document.getElementById("btn_ejecutar");
+
+
+ejecutar.onclick = () =>{
+  ejecucion();
 }
